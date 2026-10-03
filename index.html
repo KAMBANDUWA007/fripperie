@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friperie Lubum Chic - Friperie Féminine de Premier Choix à Lubumbashi</title>
+    
+    <!-- Script Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Icônes FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Police Google Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <!-- Styles personnalisés et palette de couleurs féminine -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rose-poudre': '#FDF2F4',
+                        'rose-doux': '#F4C2C2',
+                        'vieux-rose': '#C87D87',
+                        'rose-fonce': '#A24857',
+                        'rose-gold': '#D4AF37',
+                        'violet-doux': '#7A5265',
+                        'gris-texte': '#4A4A4A',
+                        'fond-clair': '#FAF7F8'
+                    },
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #FAF7F8;
+            color: #4A4A4A;
+        }
+        h1, h2, h3, .titre-serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .badge-qualite {
+            background: linear-gradient(135deg, #C87D87, #A24857);
+        }
+    </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between">
+
+    <!-- 1. BARRE SUPERIEURE D'INFORMATION -->
+    <div class="bg-rose-fonce text-white text-xs py-2 px-4 text-center font-medium tracking-wide">
+        <i class="fa-solid fa-truck-fast mr-2"></i>
+        <span>Livraison rapide à Lubumbashi (Golf, Bel-Air, Centre-ville, Kampemba, Ruashi)</span>
+    </div>
+
+    <!-- 2. EN-TETE ET NAVIGATION -->
+    <header class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-40 border-b border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo de la boutique -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-full bg-rose-poudre border border-vieux-rose/30 flex items-center justify-center text-rose-fonce font-serif text-xl font-bold shadow-sm group-hover:scale-105 transition-transform">
+                    LC
+                </div>
+                <div>
+                    <span class="text-xl sm:text-2xl font-bold text-rose-fonce tracking-tight block font-serif">
+                        Friperie Lubum Chic
+                    </span>
+                    <span class="text-[11px] text-vieux-rose font-medium tracking-wider uppercase block">
+                        Chic &amp; Économique à Lubumbashi
+                    </span>
+                </div>
+            </a>
+
+            <!-- Navigation Bureau -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-700">
+                <a href="#catalogue" class="hover:text-rose-fonce transition-colors">Catalogue</a>
+                <a href="#engagements" class="hover:text-rose-fonce transition-colors">Pourquoi Nous Choissir ?</a>
+                <a href="#contact" class="hover:text-rose-fonce transition-colors">Contact</a>
+            </nav>
+
+            <!-- Bouton du Panier -->
+            <button onclick="ouvrirPanier()" class="relative bg-rose-poudre hover:bg-rose-doux/40 text-rose-fonce border border-vieux-rose/30 px-4 py-2.5 rounded-full flex items-center gap-3 transition shadow-sm">
+                <i class="fa-solid fa-bag-shopping text-base"></i>
+                <span class="font-semibold text-sm hidden sm:inline">Mon Panier</span>
+                <span id="badge-compteur" class="bg-rose-fonce text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center">
+                    0
+                </span>
+            </button>
+        </div>
+    </header>
+
+    <!-- 3. BANNIERE D'ACCUEIL (HERO SECTION) -->
+    <section class="relative bg-gradient-to-b from-rose-poudre via-white to-fond-clair py-16 lg:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            
+            <div class="space-y-6 text-center lg:text-left">
+                <span class="inline-flex items-center gap-2 bg-white text-rose-fonce border border-vieux-rose/30 text-xs font-semibold px-4 py-1.5 rounded-full shadow-sm">
+                    <i class="fa-solid fa-gem text-rose-gold"></i>
+                    Friperie Féminine Sélectionnée avec Soin
+                </span>
+                
+                <h1 class="text-3xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight">
+                    L'Élégance Féminine à Prix Doux à <span class="text-rose-fonce italic">Lubumbashi</span>
+                </h1>
+                
+                <p class="text-gray-600 text-sm sm:text-base leading-relaxed max-w-xl mx-auto lg:mx-0">
+                    Découvrez notre collection exclusive de vêtements de friperie premier choix (VIP). Des tenues propres, repassées et prêtes à porter pour rester élégante sans vous ruiner.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#catalogue" class="bg-rose-fonce hover:bg-rose-800 text-white font-medium px-7 py-3.5 rounded-xl shadow-md transition flex items-center justify-center gap-2">
+                        <span>Explorer la collection</span>
+                        <i class="fa-solid fa-arrow-right text-xs"></i>
+                    </a>
+                    <a href="https://wa.me/243970000000" target="_blank" class="bg-white hover:bg-rose-poudre text-rose-fonce border border-vieux-rose/40 font-medium px-7 py-3.5 rounded-xl transition flex items-center justify-center gap-2 shadow-sm">
+                        <i class="fa-brands fa-whatsapp text-lg text-emerald-600"></i>
+                        <span>Nous contacter sur WhatsApp</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Image de la bannière -->
+            <div class="relative mx-auto w-full max-w-md lg:max-w-none">
+                <div class="relative rounded-3xl overflow-hidden shadow-xl border-4 border-white">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" alt="Collection Vêtements Féminins" class="w-full h-[420px] object-cover">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
+                    
+                    <div class="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-4 rounded-2xl border border-white/50 shadow-lg flex items-center justify-between">
+                        <div>
+                            <p class="text-xs text-gray-500 font-medium">Arrivage VIP cette semaine</p>
+                            <p class="text-sm font-bold text-rose-fonce font-serif">100% Qualité Vérifiée</p>
+                        </div>
+                        <span class="text-xs bg-rose-poudre text-rose-fonce font-bold px-3 py-1.5 rounded-lg border border-vieux-rose/20">
+                            Premier Choix
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. GARANTIES ET ENGAGEMENTS -->
+    <section id="engagements" class="py-12 bg-white border-y border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-fond-clair border border-rose-100/60">
+                <div class="w-12 h-12 rounded-xl bg-rose-poudre text-rose-fonce flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900 text-base font-serif">Articles Propres &amp; Traités</h3>
+                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                        Chaque vêtement est lavé, repassé et soigneusement inspecté avant sa mise en vente.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-fond-clair border border-rose-100/60">
+                <div class="w-12 h-12 rounded-xl bg-rose-poudre text-rose-fonce flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-calculator"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900 text-base font-serif">Prix Justes USD &amp; CDF</h3>
+                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                        Transparence totale avec affichage direct en Dollars et en Francs Congolais au taux du jour.
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 p-5 rounded-2xl bg-fond-clair border border-rose-100/60">
+                <div class="w-12 h-12 rounded-xl bg-rose-poudre text-rose-fonce flex items-center justify-center text-xl shrink-0">
+                    <i class="fa-solid fa-location-dot"></i>
+                </div>
+                <div>
+                    <h3 class="font-bold text-gray-900 text-base font-serif">Livraison à Lubumbashi</h3>
+                    <p class="text-xs text-gray-600 mt-1 leading-relaxed">
+                        Expédition rapide dans toutes les communes : Golf, Bel-Air, Centre-ville, Kampemba et Ruashi.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 5. CATALOGUE PRODUITS ET FILTRES -->
+    <section id="catalogue" class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
+            <span class="text-vieux-rose text-xs font-bold tracking-widest uppercase">Notre Collection Féminine</span>
+            <h2 class="text-3xl font-bold text-gray-900 font-serif">Sélection de Vêtements en Stock</h2>
+            <p class="text-sm text-gray-600">
+                Filtrer par catégorie et ajouter vos articles préférés au panier pour commander sur WhatsApp.
+            </p>
+        </div>
+
+        <!-- Boutons de Filtres -->
+        <div class="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
+            <button onclick="filtrerProduits('tous', this)" class="bouton-filtre active bg-rose-fonce text-white font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition shadow-sm">
+                Tous les articles
+            </button>
+            <button onclick="filtrerProduits('robes', this)" class="bouton-filtre bg-white text-gray-700 hover:bg-rose-poudre border border-rose-200 font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition">
+                Robes
+            </button>
+            <button onclick="filtrerProduits('hauts', this)" class="bouton-filtre bg-white text-gray-700 hover:bg-rose-poudre border border-rose-200 font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition">
+                Hauts &amp; Chemisiers
+            </button>
+            <button onclick="filtrerProduits('bas', this)" class="bouton-filtre bg-white text-gray-700 hover:bg-rose-poudre border border-rose-200 font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition">
+                Pantalons &amp; Jupes
+            </button>
+            <button onclick="filtrerProduits('ensembles', this)" class="bouton-filtre bg-white text-gray-700 hover:bg-rose-poudre border border-rose-200 font-medium text-xs sm:text-sm px-5 py-2.5 rounded-full transition">
+                Ensembles &amp; Vestes
+            </button>
+        </div>
+
+        <!-- Grille des produits -->
+        <div id="grille-produits" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Les articles sont générés dynamiquement par JavaScript -->
+        </div>
+
+    </section>
+
+    <!-- 6. MODAL TIROIR DU PANIER D'ACHAT -->
+    <div id="modal-panier" class="fixed inset-0 z-50 invisible opacity-0 transition-all duration-300">
+        <!-- Arrière-plan sombre -->
+        <div onclick="fermerPanier()" class="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+        
+        <!-- Conteneur Panier Droite -->
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-white shadow-2xl flex flex-col justify-between">
+            
+            <!-- En-tête du panier -->
+            <div class="p-5 border-b border-rose-100 flex items-center justify-between bg-rose-poudre/50">
+                <div class="flex items-center gap-2">
+                    <i class="fa-solid fa-bag-shopping text-rose-fonce"></i>
+                    <h3 class="font-bold text-gray-900 font-serif text-lg">Votre Panier d'Achat</h3>
+                </div>
+                <button onclick="fermerPanier()" class="w-8 h-8 rounded-full bg-white text-gray-500 hover:text-gray-900 flex items-center justify-center border border-gray-200 transition">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <!-- Liste des articles du panier -->
+            <div id="contenu-panier" class="p-5 overflow-y-auto flex-1 space-y-4">
+                <!-- Généré dynamiquement -->
+            </div>
+
+            <!-- Formulaire de commande & Totaux -->
+            <div class="p-5 border-t border-rose-100 bg-fond-clair space-y-4">
+                
+                <!-- Calculs des Prix -->
+                <div class="space-y-2 text-xs text-gray-600 border-b border-gray-200 pb-3">
+                    <div class="flex justify-between">
+                        <span>Sous-total articles :</span>
+                        <span id="sous-total-usd" class="font-bold text-gray-800">0.00 $</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span>Frais de livraison estimés :</span>
+                        <span id="frais-livraison-usd" class="font-bold text-gray-800">2.00 $</span>
+                    </div>
+                    <div class="flex justify-between text-sm text-rose-fonce font-bold pt-1">
+                        <span>Total à payer ($) :</span>
+                        <span id="total-usd">2.00 $</span>
+                    </div>
+                    <div class="flex justify-between text-xs text-vieux-rose font-semibold">
+                        <span>Total équivalent en Francs Congolais :</span>
+                        <span id="total-cdf">5 600 FC</span>
+                    </div>
+                </div>
+
+                <!-- Formulaire d'information client -->
+                <div class="space-y-3">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Votre Nom complet :</label>
+                        <input type="text" id="client-nom" placeholder="Ex: Marie Kabange" class="w-full text-xs p-2.5 rounded-lg border border-rose-200 focus:outline-none focus:border-rose-fonce bg-white">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-700 mb-1">Quartier de livraison à Lubumbashi :</label>
+                        <select id="client-quartier" onchange="mettreAJourFraisLivraison()" class="w-full text-xs p-2.5 rounded-lg border border-rose-200 focus:outline-none focus:border-rose-fonce bg-white">
+                            <option value="Centre-ville" data-frais="1.5">Centre-ville (1.5 $ / ~4 200 FC)</option>
+                            <option value="Golf" data-frais="2.0" selected>Golf (Faustin, Malela, Plateau) (2.0 $ / ~5 600 FC)</option>
+                            <option value="Bel-Air" data-frais="2.0">Bel-Air (2.0 $ / ~5 600 FC)</option>
+                            <option value="Baudouin" data-frais="2.0">Baudouin (2.0 $ / ~5 600 FC)</option>
+                            <option value="Kampemba" data-frais="2.5">Kampemba (2.5 $ / ~7 000 FC)</option>
+                            <option value="Ruashi" data-frais="3.0">Ruashi (3.0 $ / ~8 400 FC)</option>
+                            <option value="Kapa" data-frais="2.5">Kapa (2.5 $ / ~7 000 FC)</option>
+                            <option value="Autre commune">Autre quartier à préciser sur WhatsApp</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Bouton de Validation WhatsApp -->
+                <button onclick="envoyerCommandeWhatsApp()" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 px-4 rounded-xl text-xs flex items-center justify-center gap-2 shadow-md transition">
+                    <i class="fa-brands fa-whatsapp text-base"></i>
+                    <span>Envoyer la commande via WhatsApp</span>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 7. SECTION CONTACT ET LOCALISATION -->
+    <section id="contact" class="py-16 bg-white border-t border-rose-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-gradient-to-r from-rose-poudre to-fond-clair rounded-3xl p-8 lg:p-12 border border-rose-100 flex flex-col lg:flex-row gap-8 items-center justify-between">
+                
+                <div class="space-y-4 text-center lg:text-left">
+                    <span class="text-xs font-bold text-rose-fonce tracking-widest uppercase">Service Client Dévoué</span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-gray-900 font-serif">Une question ou une réservation spéciale ?</h2>
+                    <p class="text-xs sm:text-sm text-gray-600 max-w-xl">
+                        Notre équipe vous répond rapidement du Lundi au Samedi, de 08h00 à 18h00.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2 text-xs font-semibold text-gray-700">
+                        <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-rose-200">
+                            <i class="fa-solid fa-location-dot text-rose-fonce"></i> Lubumbashi, Centre-Ville
+                        </span>
+                        <span class="flex items-center gap-2 bg-white px-3 py-2 rounded-lg border border-rose-200">
+                            <i class="fa-solid fa-phone text-rose-fonce"></i> +243 97 000 0000
+                        </span>
+                    </div>
+                </div>
+
+                <div class="shrink-0">
+                    <a href="https://wa.me/243970000000" target="_blank" class="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm flex items-center gap-3 shadow-md transition">
+                        <i class="fa-brands fa-whatsapp text-xl"></i>
+                        <span>Discuter directement sur WhatsApp</span>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. PIED DE PAGE (FOOTER) -->
+    <footer class="bg-gray-900 text-gray-400 py-10 text-xs border-t border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 border-b border-gray-800 pb-6">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-full bg-rose-fonce text-white flex items-center justify-center font-serif font-bold text-sm">
+                        LC
+                    </div>
+                    <span class="font-serif text-base text-white font-bold">Friperie Lubum Chic</span>
+                </div>
+                <p class="text-center sm:text-right text-gray-500">
+                    Vente en ligne de vêtements de friperie féminine de haut standing à Lubumbashi, RDC.
+                </p>
+            </div>
+
+            <div class="flex flex-col sm:flex-row justify-between items-center gap-4 text-center sm:text-left text-gray-500">
+                <p>&copy; 2026 Friperie Lubum Chic. Tous droits réservés.</p>
+                <p>Taux de conversion appliqué : 1 USD = 2 800 FC</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 9. LOGIQUE JAVASCRIPT -->
+    <script>
+        // Taux de change fixe indicatif local
+        const TAUX_CHANGE = 2800;
+        const NUMERO_WHATSAPP = "243970000000";
+
+        // Base de données des vêtements disponibles
+        const catalogueProduits = [
+            {
+                id: 1,
+                nom: "Robe de Soirée Satinée",
+                categorie: "robes",
+                qualite: "Premier Choix VIP",
+                prixUSD: 14.00,
+                image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&q=80&w=600",
+                description: "Robe longue élégante, tissu satiné doux, parfait état."
+            },
+            {
+                id: 2,
+                nom: "Chemisier Soie & Dentelle",
+                categorie: "hauts",
+                qualite: "Comme Neuf",
+                prixUSD: 8.50,
+                image: "https://images.unsplash.com/photo-1584030373081-f37b7bb4fa8e?auto=format&fit=crop&q=80&w=600",
+                description: "Chemisier fluide couleur blanc cassé, finitions soignées."
+            },
+            {
+                id: 3,
+                nom: "Pantalon Tailleur Ajusté",
+                categorie: "bas",
+                qualite: "Premier Choix VIP",
+                prixUSD: 11.00,
+                image: "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?auto=format&fit=crop&q=80&w=600",
+                description: "Coupe moderne professionnelle, couleur vieux rose."
+            },
+            {
+                id: 4,
+                nom: "Veste Blazer Élégante",
+                categorie: "ensembles",
+                qualite: "Premier Choix VIP",
+                prixUSD: 16.00,
+                image: "https://images.unsplash.com/photo-1539533018447-63fcce2678e3?auto=format&fit=crop&q=80&w=600",
+                description: "Blazer cintré parfait pour le travail ou les événements."
+            },
+            {
+                id: 5,
+                nom: "Robe d'Été Fleurie",
+                categorie: "robes",
+                qualite: "Très Bon État",
+                prixUSD: 9.50,
+                image: "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?auto=format&fit=crop&q=80&w=600",
+                description: "Tissu léger et confortable, motifs floraux légers."
+            },
+            {
+                id: 6,
+                nom: "Jupe Plissée Midi",
+                categorie: "bas",
+                qualite: "Comme Neuf",
+                prixUSD: 8.00,
+                image: "https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?auto=format&fit=crop&q=80&w=600",
+                description: "Jupe plissée taille haute, style chic et moderne."
+            },
+            {
+                id: 7,
+                nom: "Haut Coton Col V",
+                categorie: "hauts",
+                qualite: "Premier Choix VIP",
+                prixUSD: 6.50,
+                image: "https://images.unsplash.com/photo-1618244972963-dbee1a7edc95?auto=format&fit=crop&q=80&w=600",
+                description: "Tissu respirant en coton fin, couleur pastel."
+            },
+            {
+                id: 8,
+                nom: "Ensemble Manteau & Jupe",
+                categorie: "ensembles",
+                qualite: "Premier Choix VIP",
+                prixUSD: 22.00,
+                image: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=600",
+                description: "Ensemble deux pièces assorti de qualité supérieure."
+            }
+        ];
+
+        // État du panier d'achat
+        let panier = [];
+
+        // Fonction pour formater en Francs Congolais
+        function formaterCDF(montantUSD) {
+            const totalCDF = Math.round(montantUSD * TAUX_CHANGE);
+            return totalCDF.toLocaleString("fr-FR") + " FC";
+        }
+
+        // Affichage des articles dans la grille
+        function afficherCatalogue(produits) {
+            const conteneur = document.getElementById("grille-produits");
+            conteneur.innerHTML = "";
+
+            if (produits.length === 0) {
+                conteneur.innerHTML = `
+                    <div class="col-span-full py-12 text-center text-gray-500 text-sm">
+                        Aucun vêtement disponible dans cette catégorie pour le moment.
+                    </div>
+                `;
+                return;
+            }
+
+            produits.forEach(p => {
+                const prixCDF = formaterCDF(p.prixUSD);
+                const carte = `
+                    <div class="bg-white rounded-2xl overflow-hidden border border-rose-100 shadow-sm hover:shadow-md transition flex flex-col justify-between group">
+                        <div>
+                            <div class="relative h-64 overflow-hidden bg-rose-50">
+                                <img src="${p.image}" alt="${p.nom}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                                <span class="absolute top-3 left-3 badge-qualite text-white text-[10px] font-bold px-2.5 py-1 rounded-md shadow-sm">
+                                    ${p.qualite}
+                                </span>
+                            </div>
+                            <div class="p-4">
+                                <h3 class="font-bold text-gray-900 text-sm font-serif">${p.nom}</h3>
+                                <p class="text-xs text-gray-500 mt-1 line-clamp-2">${p.description}</p>
+                                
+                                <div class="mt-4 pt-3 border-t border-rose-50 flex items-baseline justify-between">
+                                    <div>
+                                        <span class="text-lg font-bold text-rose-fonce">${p.prixUSD.toFixed(2)} $</span>
+                                        <span class="text-[11px] text-vieux-rose block font-medium">~ ${prixCDF}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-4 pt-0">
+                            <button onclick="ajouterAuPanier(${p.id})" class="w-full bg-rose-poudre hover:bg-rose-fonce hover:text-white text-rose-fonce font-semibold py-2.5 px-3 rounded-xl text-xs border border-vieux-rose/30 flex items-center justify-center gap-2 transition">
+                                <i class="fa-solid fa-plus text-xs"></i>
+                                <span>Ajouter au panier</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                conteneur.innerHTML += carte;
+            });
+        }
+
+        // Filtrage par catégorie
+        function filtrerProduits(categorie, elementBouton) {
+            const boutons = document.querySelectorAll(".bouton-filtre");
+            boutons.forEach(btn => {
+                btn.classList.remove("bg-rose-fonce", "text-white");
+                btn.classList.add("bg-white", "text-gray-700");
+            });
+
+            elementBouton.classList.remove("bg-white", "text-gray-700");
+            elementBouton.classList.add("bg-rose-fonce", "text-white");
+
+            if (categorie === "tous") {
+                afficherCatalogue(catalogueProduits);
+            } else {
+                const filtres = catalogueProduits.filter(p => p.categorie === categorie);
+                afficherCatalogue(filtres);
+            }
+        }
+
+        // Ajouter un article au panier
+        function ajouterAuPanier(idProduit) {
+            const produit = catalogueProduits.find(p => p.id === idProduit);
+            const existe = panier.find(item => item.id === idProduit);
+
+            if (existe) {
+                existe.quantite += 1;
+            } else {
+                panier.push({ ...produit, quantite: 1 });
+            }
+
+            mettreAJourPanierUI();
+            ouvrirPanier();
+        }
+
+        // Modifier la quantité
+        function changerQuantite(idProduit, delta) {
+            const item = panier.find(i => i.id === idProduit);
+            if (!item) return;
+
+            item.quantite += delta;
+            if (item.quantite <= 0) {
+                panier = panier.filter(i => i.id !== idProduit);
+            }
+
+            mettreAJourPanierUI();
+        }
+
+        // Mettre à jour l'affichage du panier
+        function mettreAJourPanierUI() {
+            const conteneurPanier = document.getElementById("contenu-panier");
+            const badgeCompteur = document.getElementById("badge-compteur");
+            
+            // Calcul du nombre d'articles
+            const totalArticles = panier.reduce((acc, item) => acc + item.quantite, 0);
+            badgeCompteur.innerText = totalArticles;
+
+            if (panier.length === 0) {
+                conteneurPanier.innerHTML = `
+                    <div class="text-center py-12 text-gray-400 space-y-3">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-rose-200"></i>
+                        <p class="text-xs">Votre panier est actuellement vide.</p>
+                    </div>
+                `;
+            } else {
+                conteneurPanier.innerHTML = "";
+                panier.forEach(item => {
+                    const totalLigneUSD = item.prixUSD * item.quantite;
+                    const htmlItem = `
+                        <div class="flex items-center gap-3 p-3 bg-white rounded-xl border border-rose-100 shadow-sm">
+                            <img src="${item.image}" alt="${item.nom}" class="w-14 h-14 object-cover rounded-lg">
+                            <div class="flex-1">
+                                <h4 class="font-bold text-gray-900 text-xs font-serif">${item.nom}</h4>
+                                <p class="text-[11px] text-rose-fonce font-bold mt-0.5">${item.prixUSD.toFixed(2)} $ / unité</p>
+                                
+                                <div class="flex items-center gap-2 mt-2">
+                                    <button onclick="changerQuantite(${item.id}, -1)" class="w-5 h-5 rounded bg-gray-100 text-gray-600 flex items-center justify-center text-xs font-bold hover:bg-rose-200">-</button>
+                                    <span class="text-xs font-bold px-1">${item.quantite}</span>
+                                    <button onclick="changerQuantite(${item.id}, 1)" class="w-5 h-5 rounded bg-gray-100 text-gray-600 flex items-center justify-center text-xs font-bold hover:bg-rose-200">+</button>
+                                </div>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-xs font-bold text-gray-900 block">${totalLigneUSD.toFixed(2)} $</span>
+                                <span class="text-[10px] text-gray-400 block">${formaterCDF(totalLigneUSD)}</span>
+                            </div>
+                        </div>
+                    `;
+                    conteneurPanier.innerHTML += htmlItem;
+                });
+            }
+
+            mettreAJourTotaux();
+        }
+
+        // Calcul des totaux et frais de livraison
+        function mettreAJourTotaux() {
+            const sousTotalUSD = panier.reduce((acc, item) => acc + (item.prixUSD * item.quantite), 0);
+            
+            const selectQuartier = document.getElementById("client-quartier");
+            const optionSelectionnee = selectQuartier.options[selectQuartier.selectedIndex];
+            const fraisLivraison = parseFloat(optionSelectionnee.getAttribute("data-frais") || "2.0");
+
+            const totalGlobalUSD = sousTotalUSD + (panier.length > 0 ? fraisLivraison : 0);
+
+            document.getElementById("sous-total-usd").innerText = sousTotalUSD.toFixed(2) + " $";
+            document.getElementById("frais-livraison-usd").innerText = (panier.length > 0 ? fraisLivraison.toFixed(2) : "0.00") + " $";
+            document.getElementById("total-usd").innerText = totalGlobalUSD.toFixed(2) + " $";
+            document.getElementById("total-cdf").innerText = formaterCDF(totalGlobalUSD);
+        }
+
+        function mettreAJourFraisLivraison() {
+            mettreAJourTotaux();
+        }
+
+        // Ouverture / Fermeture du Panier
+        function ouvrirPanier() {
+            const modal = document.getElementById("modal-panier");
+            modal.classList.remove("invisible", "opacity-0");
+        }
+
+        function fermerPanier() {
+            const modal = document.getElementById("modal-panier");
+            modal.classList.add("invisible", "opacity-0");
+        }
+
+        // Génération et envoi de la commande WhatsApp
+        function envoyerCommandeWhatsApp() {
+            if (panier.length === 0) {
+                alert("Votre panier est vide. Veuillez ajouter au moins un vêtement avant de commander.");
+                return;
+            }
+
+            const nomClient = document.getElementById("client-nom").value.trim();
+            const quartier = document.getElementById("client-quartier").value;
+
+            if (!nomClient) {
+                alert("Veuillez entrer votre nom complet pour la livraison.");
+                return;
+            }
+
+            const sousTotalUSD = panier.reduce((acc, item) => acc + (item.prixUSD * item.quantite), 0);
+            const selectQuartier = document.getElementById("client-quartier");
+            const fraisLivraison = parseFloat(selectQuartier.options[selectQuartier.selectedIndex].getAttribute("data-frais") || "2.0");
+            const totalUSD = sousTotalUSD + fraisLivraison;
+
+            let message = `Bonjour Friperie Lubum Chic !\n`;
+            message += `Je souhaite passer une commande de vêtements :\n\n`;
+            
+            panier.forEach((item, index) => {
+                message += `${index + 1}. ${item.nom} (x${item.quantite}) - ${(item.prixUSD * item.quantite).toFixed(2)} $\n`;
+            });
+
+            message += `\n------------------------------\n`;
+            message += `Sous-total articles : ${sousTotalUSD.toFixed(2)} $\n`;
+            message += `Lieu de livraison : Quartier ${quartier} (Lubumbashi)\n`;
+            message += `Frais de livraison : ${fraisLivraison.toFixed(2)} $\n`;
+            message += `TOTAL A PAYER : ${totalUSD.toFixed(2)} $ (soit environ ${formaterCDF(totalUSD)})\n`;
+            message += `------------------------------\n`;
+            message += `Nom de la cliente : ${nomClient}\n\n`;
+            message += `Merci de me confirmer la disponibilité de ces articles !`;
+
+            const urlWhatsApp = `https://wa.me/${NUMERO_WHATSAPP}?text=${encodeURIComponent(message)}`;
+            window.open(urlWhatsApp, "_blank");
+        }
+
+        // Initialisation au chargement de la page
+        window.onload = function() {
+            afficherCatalogue(catalogueProduits);
+            mettreAJourPanierUI();
+        };
+    </script>
+</body>
+</html>
